@@ -1,19 +1,15 @@
-const chalk = require("chalk");
-const clear = require("clear");
-const figlet = require("figlet");
+const { askRepo } = require("./lib/inquirer");
+const { init, printStars } = require("./lib/tools");
+const { watchStars } = require("./lib/watcher");
 
-clear();
-
-console.log(
-  chalk.yellow(figlet.textSync("Stargazer", { horizontalLayout: "full" })),
-  "\n"
-);
-
-const inquirer = require("./lib/inquirer");
+// Initialize CLI:
+init();
 
 const run = async () => {
-  const credentials = await inquirer.askGithubCredentials();
-  console.log(credentials);
+  const repo = await askRepo();
+  init();
+  const info = await watchStars(repo);
+  printStars(info.stars);
 };
 
 run();
