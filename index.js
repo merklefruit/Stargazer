@@ -32,7 +32,7 @@ const update = async (repo) => {
 };
 
 const checkAuth = async () => {
-  const token = getToken().token;
+  const token = getToken();
   if (token) {
     console.log("Successfully authenticated!", "\n");
   } else {
