@@ -8,21 +8,23 @@ const {
   explainAuth,
 } = require("./lib/tools");
 const { watchStars } = require("./lib/watcher");
+const ansi = require("ansi-escapes");
 
 const run = async () => {
   init();
 
   await checkAuth();
   const repo = await askRepo();
+  process.stdout.write(ansi.cursorShow);
+  reset(repo);
   update(repo);
 
   setInterval(async function () {
     update(repo);
-  }, 10000);
+  }, 6000);
 };
 
 const update = async (repo) => {
-  reset(repo);
   const info = await watchStars(repo);
   if (info === null) {
     process.kill(process.pid);
