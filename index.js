@@ -8,14 +8,12 @@ const {
   explainAuth,
 } = require("./lib/tools");
 const { watchStars } = require("./lib/watcher");
-const ansi = require("ansi-escapes");
 
 const run = async () => {
   init();
 
   await checkAuth();
   const repo = await askRepo();
-  process.stdout.write(ansi.cursorShow);
   reset(repo);
   update(repo);
 
