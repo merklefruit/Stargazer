@@ -18,7 +18,7 @@
     "@octokit/auth-basic": "^1.4.5",
     "@octokit/rest": "^18.0.0",
     "ansi-escapes": "^4.3.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
